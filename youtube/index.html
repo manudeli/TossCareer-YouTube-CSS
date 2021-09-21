@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube</title>
+  </head>
+  <body>
+    <nav id="masthead-container">
+      <div id="masthead">
+        <div id="start">
+          <div id="guide-button"></div>
+          <div id="logo"></div>
+        </div>
+        <div id="center">
+          <div id="search">
+            <form id="search-form" action="/results">
+              <div id="container">
+                <input id="search" type="text" placeholder="Search" />
+              </div>
+            </form>
+            <button id="search-icon-legacy" aria-label="Search">
+              SVG 찾기 아이콘
+            </button>
+          </div>
+          <div id="voice-search-button">
+            <a>
+              <button id="button">음성 아이콘</button>
+            </a>
+          </div>
+        </div>
+        <div id="end" slot="masthead-skeleton">
+          <div id="masthead-skeleton-icons">
+            <div class="masthead-skeleton-icon"></div>
+            <div class="masthead-skeleton-icon"></div>
+            <div class="masthead-skeleton-icon"></div>
+            <div class="masthead-skeleton-icon"></div>
+          </div>
+          <div id="buttons">
+            <div id="button">
+              <a><button>영상추가</button></a>
+            </div>
+            <div id="button">
+              <a><button>메뉴</button></a>
+            </div>
+            <div id="button">
+              <a><button>알림</button></a>
+            </div>
+            <div id="button">
+              <img
+                alt="Avatar image"
+                height="32"
+                width="32"
+                id="img"
+                src="https://yt3.ggpht.com/ytc/AKedOLS8CWf3Z4Q7MlUICz8ViNWqytCgcMm-t3ZkkCe1OEAUGCPmxqVJud58ULUlRFjs=s88-c-k-c0x00ffffff-no-rj-mo"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="guide" role="navigation"></div>
+  </body>
+</html>
