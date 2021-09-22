@@ -2,6 +2,9 @@ const path = require('path');
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -9,5 +12,34 @@ module.exports = merge(common, {
     filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'build'),
   },
-  plugins: [new CleanWebpackPlugin()],
+  optimization: {
+    minimizer: [
+      new TerserPlugin(),
+      new HtmlWebpackPlugin({
+        template: './src/template.html',
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true,
+        },
+      }),
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new CleanWebpackPlugin(),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        // 순서가 뒤에서 부터 시작함
+        use: [
+          MiniCssExtractPlugin.loader, // 3. css를 file로 추출
+          'css-loader', // 2. css를 commonjs로 변환
+          'sass-loader', // 1. scss를 css로 변환
+        ],
+      },
+    ],
+  },
 });
