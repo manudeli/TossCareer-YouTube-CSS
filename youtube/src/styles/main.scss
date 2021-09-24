@@ -314,7 +314,7 @@ body {
             border: 1px solid $DARK_SCROLL_THUMB;
             border-radius: 30px;
             padding: 8px 16px;
-            transition: all 200ms;
+            transition: background 200ms;
             cursor: pointer;
             &:hover {
               background: $SEARCH_BOX_BORDER_COLOR_HOVER;
