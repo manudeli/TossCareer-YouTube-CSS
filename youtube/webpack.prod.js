@@ -30,7 +30,8 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        // sass, scss 둘다 됨
+        test: /\.s[ac]ss$/i,
         // 순서가 뒤에서 부터 시작함
         use: [
           MiniCssExtractPlugin.loader, // 3. css를 file로 추출

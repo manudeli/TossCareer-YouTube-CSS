@@ -24,7 +24,8 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        // sass, scss 둘다 됨
+        test: /\.s[ac]ss$/i,
         // 순서가 뒤에서 부터 시작함
         use: [
           'style-loader', // 3. styles를 DOM에 삽입
