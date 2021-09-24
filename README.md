@@ -7,6 +7,13 @@
 
 ## 2. 🔗 [토스 채용](https://toss.im/career) 메인 클론
 
+## 실행방법
+
+1. 먼저 원하시는 프로젝트 폴더(youtube, tossCareer 중 하나)에 들어가세요
+2. 정상적으로 실행하기 위해 **npm install**로 node_modules를 설치하세요
+3. **npm start**로 webpack devserver로 볼 수 있습니다.
+4. **npm run build**로 production 버전을 번들링하세요.
+
 ### 기본 요구사항
 
 - [x] SCSS로 스타일을 작성하세요.
