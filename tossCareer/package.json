@@ -37,6 +37,7 @@
     "jest-worker": "^27.2.0",
     "json-parse-better-errors": "^1.0.2",
     "json-schema-traverse": "^0.4.1",
+    "lit": "^2.0.0",
     "loader-runner": "^4.2.0",
     "merge-stream": "^2.0.0",
     "mime-db": "^1.49.0",
