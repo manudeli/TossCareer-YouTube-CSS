@@ -1,4 +1,16 @@
 import './styles/main.scss';
+import { querySelector } from './utils/domUtil';
+import { css, html } from 'lit';
 
-// Webpack 설정하기
-// https://www.youtube.com/watch?v=3On5Z0gjf4U&list=PLblA84xge2_zwxh3XJqy6UVxS60YdusY8&ab_channel=ColtSteele
+window.addEventListener('scroll', (e) => {
+  const target = querySelector('.scroll');
+  const scrolled = window.pageYOffset;
+  const rate = scrolled * 1;
+
+  console.log(rate);
+  target.style = css`
+    transform: translate(0, ${rate / 2}px);
+    opacity: ${rate > 100 ? 0 : 1};
+    transition: opacity 1s;
+  `;
+});
