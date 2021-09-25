@@ -5,36 +5,143 @@
 body {
   margin: 0;
   height: 100vh;
-  font-size: 5em;
-  font-family: 'Montserrat';
-  font-weight: bold;
-  & :nth-child(3) {
-    background-color: orange;
+  background: gray;
+  color: white;
+
+  height: 200vh;
+}
+
+#navigation {
+  width: 100%;
+
+  position: fixed;
+  #navigation-container {
+    width: 92%;
+    max-width: $CONTAINER_WIDTH;
+    height: 59px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: auto;
+
+    #menu {
+      display: flex;
+
+      li {
+        padding: 0 8px;
+        a {
+          padding: 12px 10px;
+          border-radius: 8px;
+          transition: background 200ms;
+          font-weight: 400;
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
   }
 }
 
-section {
-  height: 100%;
+#section_last {
+  @include flex(center, center);
+  height: 600px;
+  background: center / cover no-repeat
+    url(../../public/assets/tosscareer35.jpeg);
+
+  #wrapper {
+    text-align: center;
+
+    :nth-child(1) {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 42px;
+    }
+    :nth-child(2) {
+      font-size: 14px;
+      line-height: 23px;
+      margin-bottom: 52px;
+    }
+  }
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  justify-content: center;
-  align-items: middle;
-  place-items: center;
-  height: 100vh;
+footer {
+  padding: 50px 0 100px;
+  color: $grey600;
+
+  background: $grey50;
+  #footer-inner {
+    margin: auto;
+    max-width: $CONTAINER_WIDTH;
+    padding: 0 67px;
+    #group-list {
+      display: flex;
+      @include propOnBreakpoint(flex-direction, column, row, row, row, row);
+      @include propOnBreakpoint(gap, 40px, none, none, none, none);
+      justify-content: space-between;
+      padding-bottom: 50px;
+
+      #site-group {
+        flex-basis: 170px;
+        #title {
+          @include flex(none, center);
+          color: $grey800;
+          font-size: 15px;
+          font-weight: 700;
+          padding-bottom: 5px;
+          height: 35px;
+        }
+        #item {
+          @include flex(none, center);
+          height: 30px;
+        }
+
+        &:nth-child(4) {
+          flex: 1;
+        }
+      }
+    }
+
+    address {
+      font-size: 13px;
+      line-height: 20px;
+      #company-name {
+        display: block;
+        color: $grey800;
+        font-size: 16px;
+        font-weight: 700;
+        padding-bottom: 16px;
+        height: 35px;
+      }
+    }
+
+    #term-wrapper {
+      padding: 24px 0 30px;
+      font-size: 13px;
+      word-break: keep-all;
+      display: flex;
+      @include propOnBreakpoint(flex-direction, column, row, row, row, row);
+      @include propOnBreakpoint(gap, 10px, none, none, none, none);
+      #term {
+        padding-right: 30px;
+      }
+    }
+  }
+
+  #social-list {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+  }
 }
 
-span {
-  width: 110px;
-  height: 110px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: black;
-  border-radius: 50%;
+button {
+  padding: 14px 18px;
+  outline: none;
+  background: $blue500;
+  border-radius: $radius-m;
+  border: none;
+  color: white;
+  font-weight: 600;
 }
