@@ -1,6 +1,11 @@
 @import './nomalize';
 @import './constant';
 @import './mixins';
+@import './hamburger';
+
+a {
+  cursor: pointer;
+}
 
 body {
   margin: 0;
@@ -18,26 +23,86 @@ body {
   #navigation-container {
     width: 92%;
     max-width: $CONTAINER_WIDTH;
-    height: 59px;
+    @include propOnBreakpoint(
+      height,
+      null,
+      $NAVIGATION_HEIGHT,
+      $NAVIGATION_HEIGHT,
+      $NAVIGATION_HEIGHT,
+      $NAVIGATION_HEIGHT
+    );
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include propOnBreakpoint(flex-direction, column, row, row, row, row);
+    @include propOnBreakpoint(
+      justify-content,
+      left,
+      space-between,
+      space-between,
+      space-between,
+      space-between
+    );
+
+    @include propOnBreakpoint(
+      align-items,
+      space-between,
+      center,
+      center,
+      center,
+      center
+    );
 
     margin: auto;
+
+    #logo-container {
+      height: $NAVIGATION_HEIGHT;
+      @include flex(left, center);
+      justify-content: space-between;
+    }
+
+    #collapse {
+      @include propOnBreakpoint(display, block, none, none, none, none);
+    }
 
     #menu {
       display: flex;
 
+      @include propOnBreakpoint(overflow, hidden, none, none, none, none);
+      @include propOnBreakpoint(flex-direction, column, row, row, row, row);
       li {
-        padding: 0 8px;
+        transition: height, 500ms;
+        @include propOnBreakpoint(margin, 0 -10px, 0 8px, 0 8px, 0 8px, 0 8px);
+        @include propOnBreakpoint(display, flex, null, null, null, null);
         a {
+          flex: 1;
           padding: 12px 10px;
-          border-radius: 8px;
+          border-radius: $radius-m;
           transition: background 200ms;
           font-weight: 400;
+          line-height: 20px;
           &:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: $whiteOpacity100;
           }
+        }
+      }
+
+      &.open {
+        li {
+          height: 44px;
+          opacity: 1;
+        }
+      }
+      &.unopen {
+        li {
+          @include propOnBreakpoint(height, 0, 44px, 44px, 44px, 44px);
+          @include propOnBreakpoint(opacity, 0, 1, 1, 1, 1);
+          @include propOnBreakpoint(
+            transform,
+            translateY(-22px),
+            none,
+            none,
+            none,
+            none
+          );
         }
       }
     }

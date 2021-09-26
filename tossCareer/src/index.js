@@ -14,3 +14,22 @@ window.addEventListener('scroll', () => {
     transition: opacity 1s;
   `;
 });
+
+const collapse = document.querySelector('#collapse');
+const menu = document.querySelector('#menu');
+
+collapse.addEventListener('click', (e) => {
+  switch (e.currentTarget.className) {
+    case 'unopen':
+      e.currentTarget.className = 'open';
+      menu.className = 'open';
+      break;
+    case 'open':
+      e.currentTarget.className = 'unopen';
+      menu.className = 'unopen';
+      break;
+
+    default:
+      break;
+  }
+});
