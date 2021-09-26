@@ -64,12 +64,15 @@ window.addEventListener('scroll', () => {
   `;
   animatedDesc1.style = css`
     opacity: ${numberOneToZero(argOpacityDesc1)};
+    transform: translateY(${20 - numberOneToZero(argOpacityDesc1) * 20}px);
   `;
   animatedDesc2.style = css`
     opacity: ${numberOneToZero(argOpacityDesc2)};
+    transform: translateY(${20 - numberOneToZero(argOpacityDesc2) * 20}px);
   `;
   animatedDesc3.style = css`
     opacity: ${numberOneToZero(argOpacityDesc3)};
+    transform: translateY(${20 - numberOneToZero(argOpacityDesc3) * 20}px);
   `;
   background.style = css`
     transform: scale(${backgroundScale});
