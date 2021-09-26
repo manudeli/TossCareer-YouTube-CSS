@@ -110,6 +110,7 @@ body {
 }
 
 #section_first {
+  opacity: 1;
   pointer-events: none;
   z-index: 100;
   height: 100vh;
@@ -120,9 +121,11 @@ body {
     background: center/cover no-repeat url(../../public/assets/tosscareer.jpeg);
     width: 100%;
     height: 100vh;
+    filter: brightness(1-0.3);
   }
 
   #title {
+    opacity: 1;
     @include propOnBreakpoint(font-size, 32px, 72px, 72px, 72px, 72px);
     @include propOnBreakpoint(line-height, 47px, 89px, 89px, 89px, 89px);
     @include propOnBreakpoint(top, 120px, 22vh, 22vh, 22vh, 22vh);
@@ -143,6 +146,7 @@ body {
     text-align: center;
     width: 100%;
     #description {
+      opacity: 0;
       margin-bottom: 30px;
       transition: all 200ms;
     }
